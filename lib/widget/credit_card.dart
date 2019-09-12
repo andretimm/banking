@@ -6,8 +6,8 @@ class creditCard extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.only(right: 16.0, left: 16.0),
       child: Container(
-        width: 260.0,
-        height: 200.0,
+        width: 215.0,
+        //height: 260.0,
         decoration: BoxDecoration(
           //shape: BoxShape.rectangle,
           borderRadius: BorderRadius.circular(16.0),
@@ -22,8 +22,12 @@ class creditCard extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  Icon(Icons.card_giftcard, size: 32),
-                  Icon(Icons.card_giftcard, size: 32),
+                  Image.asset(
+                    "assets/mastercard.png",
+                    width: 32.0,
+                    height: 32.0,
+                  ),
+                  Icon(Icons.sim_card, size: 32),
                 ],
               ),
               Column(
