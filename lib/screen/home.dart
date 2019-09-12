@@ -61,6 +61,19 @@ class _HomeState extends State<Home> {
                   //color: Colors.red,
                   child: Friends(),
                 ),
+                Container(
+                  padding: EdgeInsets.all(16.0),
+                  height: 180.0,
+                  width: MediaQuery.of(context).size.height,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(16.0),
+                      topRight: Radius.circular(16.0),
+                    ),
+                    color: Colors.white,
+                  ),
+                  child: Text("Teste"),
+                )
               ],
             ),
           ),
