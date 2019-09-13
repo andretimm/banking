@@ -50,13 +50,13 @@ class _HomeState extends State<Home> {
                   child: ListView(
                     scrollDirection: Axis.horizontal,
                     children: <Widget>[
-                      creditCard(
+                      CreditCard(
                         imageAsset: "assets/visa.png",
                         amount: "\$7 534.14",
                         valid: "03/22",
                         cardType: "Standart",
                       ),
-                      creditCard(
+                      CreditCard(
                         imageAsset: "assets/mastercard.png",
                         amount: "\$2 617.14",
                         valid: "12/25",

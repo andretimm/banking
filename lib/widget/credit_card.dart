@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class creditCard extends StatefulWidget {
+class CreditCard extends StatefulWidget {
   final String imageAsset, valid, cardType, amount;
-  creditCard({this.imageAsset, this.valid, this.cardType, this.amount});
+  CreditCard({this.imageAsset, this.valid, this.cardType, this.amount});
   @override
-  _creditCardState createState() => _creditCardState();
+  _CreditCardState createState() => _CreditCardState();
 }
 
-class _creditCardState extends State<creditCard> {
+class _CreditCardState extends State<CreditCard> {
   @override
   Widget build(BuildContext context) {
     return Padding(
