@@ -1,6 +1,13 @@
 import 'package:flutter/material.dart';
 
-class creditCard extends StatelessWidget {
+class creditCard extends StatefulWidget {
+  final String imageAsset, valid, cardType, amount;
+  creditCard({this.imageAsset, this.valid, this.cardType, this.amount});
+  @override
+  _creditCardState createState() => _creditCardState();
+}
+
+class _creditCardState extends State<creditCard> {
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -23,7 +30,7 @@ class creditCard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   Image.asset(
-                    "assets/mastercard.png",
+                    widget.imageAsset,
                     width: 32.0,
                     height: 32.0,
                   ),
@@ -34,7 +41,7 @@ class creditCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Text(
-                    "\$7 534.14",
+                    widget.amount,
                     style: TextStyle(
                       fontSize: 28.0,
                       fontWeight: FontWeight.bold,
@@ -43,7 +50,7 @@ class creditCard extends StatelessWidget {
                   Padding(
                     padding: EdgeInsets.only(top: 8.0),
                     child: Text(
-                      "Platinum Plus",
+                      widget.cardType,
                       style: TextStyle(
                         color: Color(0xFF6F8099),
                         fontSize: 17.0,
@@ -63,7 +70,7 @@ class creditCard extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    "12/22",
+                    widget.valid,
                     style: TextStyle(
                       fontSize: 17.0,
                       color: Color(0xFF081C81),
