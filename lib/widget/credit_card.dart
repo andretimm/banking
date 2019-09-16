@@ -1,3 +1,4 @@
+import 'package:banking_app/screen/card_detail.dart';
 import 'package:flutter/material.dart';
 
 class CreditCard extends StatefulWidget {
@@ -12,76 +13,114 @@ class _CreditCardState extends State<CreditCard> {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(right: 16.0, left: 16.0),
-      child: Container(
-        width: 215.0,
-        //height: 260.0,
-        decoration: BoxDecoration(
-          //shape: BoxShape.rectangle,
-          borderRadius: BorderRadius.circular(16.0),
-          color: Colors.white,
-        ),
-        child: Padding(
-          padding: EdgeInsets.only(left: 32, right: 32),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Image.asset(
-                    widget.imageAsset,
-                    width: 32.0,
-                    height: 32.0,
-                  ),
-                  Icon(Icons.sim_card, size: 32),
-                ],
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text(
-                    widget.amount,
-                    style: TextStyle(
-                      fontSize: 28.0,
-                      fontWeight: FontWeight.bold,
+      child: InkWell(
+        onTap: () {
+          Navigator.push(
+              context,
+              /* MaterialPageRoute(
+              builder: (context) => CreateAccount1(),
+            ),*/
+              SlideTopRoute(page: CardDetail()));
+        },
+        highlightColor: Colors.transparent,
+        splashColor: Colors.transparent,
+        child: Container(
+          width: 215.0,
+          //height: 260.0,
+          decoration: BoxDecoration(
+            //shape: BoxShape.rectangle,
+            borderRadius: BorderRadius.circular(16.0),
+            color: Colors.white,
+          ),
+          child: Padding(
+            padding: EdgeInsets.only(left: 32, right: 32),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Image.asset(
+                      widget.imageAsset,
+                      width: 32.0,
+                      height: 32.0,
                     ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(top: 8.0),
-                    child: Text(
-                      widget.cardType,
+                    Icon(Icons.sim_card, size: 32),
+                  ],
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      widget.amount,
                       style: TextStyle(
-                        color: Color(0xFF6F8099),
-                        fontSize: 17.0,
+                        fontSize: 28.0,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
-                  ),
-                ],
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text(
-                    "VALID THRU",
-                    style: TextStyle(
-                      fontSize: 8.0,
-                      color: Color(0xFF6F8099),
+                    Padding(
+                      padding: EdgeInsets.only(top: 8.0),
+                      child: Text(
+                        widget.cardType,
+                        style: TextStyle(
+                          color: Color(0xFF6F8099),
+                          fontSize: 17.0,
+                        ),
+                      ),
                     ),
-                  ),
-                  Text(
-                    widget.valid,
-                    style: TextStyle(
-                      fontSize: 17.0,
-                      color: Color(0xFF081C81),
+                  ],
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      "VALID THRU",
+                      style: TextStyle(
+                        fontSize: 8.0,
+                        color: Color(0xFF6F8099),
+                      ),
                     ),
-                  )
-                ],
-              ),
-            ],
+                    Text(
+                      widget.valid,
+                      style: TextStyle(
+                        fontSize: 17.0,
+                        color: Color(0xFF081C81),
+                      ),
+                    )
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),
     );
   }
+}
+
+class SlideTopRoute extends PageRouteBuilder {
+  final Widget page;
+  SlideTopRoute({this.page})
+      : super(
+          pageBuilder: (
+            BuildContext context,
+            Animation<double> animation,
+            Animation<double> secondaryAnimation,
+          ) =>
+              page,
+          transitionsBuilder: (
+            BuildContext context,
+            Animation<double> animation,
+            Animation<double> secondaryAnimation,
+            Widget child,
+          ) =>
+              SlideTransition(
+            position: Tween<Offset>(
+              begin: const Offset(0, 1.5),
+              end: Offset.zero,
+            ).animate(animation),
+            child: child,
+          ),
+        );
 }

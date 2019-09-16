@@ -145,6 +145,60 @@ class History extends StatelessWidget {
                 ),
               ),
             ),
+            Padding(
+              padding: EdgeInsets.only(top: 16.0),
+              child: Container(
+                height: 44.0,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Container(
+                      height: 44.0,
+                      width: 44.0,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(12.0),
+                        color: Color(0xFF2C2480),
+                      ),
+                      child: Center(
+                        child: Icon(
+                          Icons.cloud,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: Padding(
+                        padding: EdgeInsets.only(left: 16.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Text(
+                              "Cloud",
+                              style: TextStyle(
+                                color: Color(0xFF081C81),
+                                fontSize: 16.0,
+                              ),
+                            ),
+                            Text(
+                              "10/08/2019",
+                              style: TextStyle(
+                                color: Color(0xFF6F8099),
+                                fontSize: 11.0,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Text(
+                      "- \$ 3.25",
+                      style: TextStyle(fontSize: 22.0),
+                    ),
+                  ],
+                ),
+              ),
+            ),
           ],
         ),
       ],
